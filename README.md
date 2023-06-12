@@ -1,1 +1,1 @@
-This repository contains a shell script project 
+This repository contains a shell script project
