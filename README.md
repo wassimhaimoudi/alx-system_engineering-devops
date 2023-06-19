@@ -8,5 +8,5 @@ This repository contains four shell related projects, each contain scripts ready
 2. **0x01-shell_permissions.**
 3. **0x02-shell_redirections.**
 4. **0x03-shell_variables_expansions.**
-## How to Download/Execute the files
-The easiest way to download the files is through the good old 
+## How to Download/Execute the files(soon)
+
