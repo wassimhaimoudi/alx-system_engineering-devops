@@ -1,7 +1,7 @@
 # ALX System enginnering devops
 ---
 ## Introduction
-Welcome to my first *system enginnering* project! My name is Mohamed Wassim Haimoudi, I made this repository as I was learning the basics of shell scripting in Bash (Bourne again shell) and other UNIX-based operating systems. Shell scripting is mainly useful for automating various processes instead of doing them manually. It makes your life as a software and system engineer easy and luxurious which makes it a "must aquire" skill to have.
+Welcome to my first *system engineering* project! My name is Mohamed Wassim Haimoudi, I made this repository as I was learning the basics of shell scripting in Bash (Bourne again shell) and navigating the shell in UNIX-based operating systems. Shell scripting is mainly useful for automating various processes internally instead of doing them manually. Shell Scripting makes your life as a software and system engineer easy and luxurious which makes it a "must aquire" skill to have.
 ## Content
 This repository contains four shell related projects, each contain scripts ready to be executed:
 1. **0x00-shell_basics.**
