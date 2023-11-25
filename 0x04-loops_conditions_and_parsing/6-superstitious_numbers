@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+# This script i displaying "Best School" 20 times
+# but for the 4th iteration, displays `bad luck for China` 
+# for the 9th iteration, displays `bad luck for Japan`
+# for the 17th iteration, displays `bad luck for italy`
+# then for the rest print the number of iteration.
+i=1
+while ((i<=20));
+do
+    if ((i == 4));
+    then
+        echo "bad luck from China"
+    elif ((i == 9));
+    then
+        echo "bad luck from Japan"
+    elif ((i == 17));
+    then
+        echo "bad luck from Italy"
+    else
+        echo "$i"
+    fi
+    i=$((i + 1))
+done
