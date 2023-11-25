@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# This bash script displays the content of the current directory
+# In a list format
+# Where only the part of the name after the first dash is displayed
+
+list=$(ls)
+for name in $list;
+do
+	if [[ $name =~ ^[0-9]+-.* ]];
+	then
+		echo "$name" | cut -c 3-
+	else
+		echo "$name"
+	fi
+done
