@@ -3,20 +3,21 @@
 # but for the 4th iteration, displays `bad luck for China` 
 # for the 9th iteration, displays `bad luck for Japan`
 # for the 17th iteration, displays `bad luck for italy`
-# then for the rest print the number of iteration.
+# for the `Best School` for other iterations.
 i=1
 while ((i<=20));
 do
-	echo $i	
-	if ((i == 4));
-	then
-		echo "bad luck from China"
-	elif ((i == 9));
-	then
-		echo "bad luck from Japan"
-	elif ((i == 17));
-	then
-		echo "bad luck from Italy"
-	fi
-	i=$((i + 1))
-done
+	echo $i
+	case $i in
+		"4")
+			echo "bad luck from China"
+			;;
+		"9")
+			echo "bad luck from Japan"
+			;;
+		"17")
+			echo "bad luck from Italy"
+			;;
+	esac
+		i=$((i + 1))
+		done
