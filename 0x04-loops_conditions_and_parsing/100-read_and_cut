@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# This bash script displays the content of the file `/etc/passwd`
+while IFS=":" read -r username _ userid _ _ _ home _;
+do
+	echo "$username:$userid:$home"
+done < /etc/passwd
