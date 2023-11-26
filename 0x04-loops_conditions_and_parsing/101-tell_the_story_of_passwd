@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# This Bash script displays the content of the file `/ect/passwd` using a while loop + IFS
+# using a special format that is similar to story telling
+
+while IFS=: read -r username password userid groupid useridinfo home cmd;
+do
+	echo "The user $username is part of the $groupid gang, lives in $home and rides $cmd. $userid's place is protected by the passcode $password, more info about the user here: $useridinfo"
+done < /etc/passwd
