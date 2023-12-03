@@ -2,5 +2,5 @@
 # This Bash script reconfigures an Ubuntu server's localhost IP and facebook server IP
 
 cp /etc/hosts ~/hosts.new
-sed -i "s/127.*$/127.0.0.1\tlocalhost\n8.8.8.8\tfacebook.com/" ~/hosts.new
+sed -i "s/127.*$/127.0.0.2\tlocalhost\n8.8.8.8\tfacebook.com/" ~/hosts.new
 cat ~/hosts.new > /etc/hosts
