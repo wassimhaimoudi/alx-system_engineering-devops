@@ -1,5 +1,6 @@
 # Simple web stack
 ---
+![A simple web stack](0-simple_web_stack.jpg)
 ## Components of this web infrastructure
 ### What is a server?
 A server is a physical or virtual machine usually located at a data center that hosts and serves your website. In this case, it's the computer running on a Linux operating system handling all the tasks.
