@@ -1,5 +1,5 @@
 # Three-Server Web Infrastructure Design
-[!1-distributed_web_infrastructure](1-distributed_web_infrastructure.jpg)
+![1-distributed_web_infrastructure](1-distributed_web_infrastructure.jpg)
 ## Components:
 
 1. **Server 1 (Primary):**
