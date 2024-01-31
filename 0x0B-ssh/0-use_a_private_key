@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-# Connects to my server which IP address is 54.173.123.216 with private key in ~/.ssh/school
-
-ssh -i ~/.ssh/school ubuntu@54.173.123.216
