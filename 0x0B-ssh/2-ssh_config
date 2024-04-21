@@ -1,0 +1,7 @@
+# ssh config file to remove password authentification
+Host *
+	HostName 18.235.248.15
+	User ubuntu
+	IdentifyFile ~/.ssh/school
+	PreferredAuthentifications publickey
+	PasswordAuthentification no
