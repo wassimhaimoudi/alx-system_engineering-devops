@@ -21,3 +21,4 @@ echo 'server {
 	}' | sudo tee /etc/nginx/sites-available/defautl > /dev/null
 
 sudo nginx -s reload
+curl localhost
