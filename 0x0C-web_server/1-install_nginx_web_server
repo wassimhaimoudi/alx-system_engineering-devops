@@ -9,7 +9,7 @@ sudo apt-get install -y nginx
 sudo apt install -y ufw
 
 sudo ufw allow 'Nginx HTTP'
-sudo ufw enable
+sudo ufw enable -y
 
 echo 'server {
 	listen 80;
