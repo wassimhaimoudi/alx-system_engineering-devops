@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+# this script adheres to the following requirements:
+# 1- Installs nginx on my web-01 server
+# 2- Assures nginx listens on port 80
+# 3- When querying nginx at its root `/` with a GET request (requesting a page) using curl, it must return a page that contains the string `Hello World!`
+
+sudo apt update
+sudo apt-get install -y nginx
+sudo apt install -y ufw
+
+sudo ufw allow 'Nginx HTTP'
+sudo ufw enable
+
+echo 'server {
+	listen 80;
+	server_name _;
+	}
+	
+	location / {
+		return 200 "Hello World!\n";
+	}' | sudo tee /etc/nginx/sites-available/defautl > /dev/null
+
+sudo nginx -s reload
