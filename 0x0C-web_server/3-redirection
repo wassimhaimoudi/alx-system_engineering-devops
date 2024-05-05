@@ -5,9 +5,9 @@
 # 3- When querying nginx at its root `/` with a GET request (requesting a page) using curl, it must return a page that contains the string `Hello World!`
 # 4- Redirects the user when they hit /redirect_me after the domain name or IP address of the server web-01
 
-sudo apt update
-sudo apt-get install -y nginx
+sudo apt-get -y update
+sudo apt-get -y install nginx
 sudo ufw allow 'Nginx HTTP'
-echo "Hello World!" > /var/www/html/index.html
-sed -i -e "|listen 80 default_server;|a/rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;" /etc/nginx/sites-available/default
-sudo service nginx start
+echo "Hello World" > /var/www/html/index.html
+sudo sed -i '/listen 80 default_server/a\ rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;' /etc/nginx/sites-enabled/default
+sudo service nginx restart
