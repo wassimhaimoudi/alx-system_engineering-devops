@@ -8,4 +8,5 @@ sudo echo "Hello World" > /var/www/html/index.html
 sudo sed -i "/listen 80 default_server/a\ rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;" /etc/nginx/sites-enabled/default
 sudo echo "Ceci n'est pas une page" > /var/www/html/custom_404.html
 sudo sed -i "/listen 80 default_server/a\\\terror_page 404 /custom_404.html;\n\tlocation = /custom_404.html {\n\t\troot /var/www/html;\n\t\tinternal;\n\t}" /etc/nginx/sites-enabled/default
+sudo sed -i "/server_name/a \\\n\tadd_header X-Served-By $(hostname);" /etc/nginx/sites-enabled/default
 sudo service nginx reload
