@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+# Installs and Configures HAProxy
+
+# Downloading and installing HAProxy
+sudo apt-get update -y
+sudo apt-get install -y --no-install-recommends software-properties-common
+sudo add-apt-repository ppa:vbernat/haproxy-2.4 -y
+sudo apt-get update -y
+sudo apt-get install -y haproxy=2.4.*
+
+# Configures HAProxy to listen and forward TCP/HTTP requests to my Nginx servers
+
+sudo echo "ENABLED=1" | sudo tee /etc/default/haproxy
+
+haproxy_server_conf=$(cat <<EOF
+
+frontend http_front
+    bind *:80
+    default_backend web-backend
+
+backend web-backend
+    balance roundrobin
+    server 451783-web-01 18.235.248.15:80 check
+    server 451783-web-02 100.25.31.89:80 check
+EOF
+)
+
+sudo echo "$haproxy_server_conf" | sudo tee -a /etc/haproxy/haproxy.cfg
+
+# Restart HAProxy to apply changes
+sudo service haproxy reload
