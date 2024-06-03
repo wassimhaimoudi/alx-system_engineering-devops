@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Configures Nginx to include a response header with the name X-Served-by and the value [STUDET-ID]-web01 or [STUDENT-ID]-web02 (depending on the server static host name) in the http response i web-01 and web-02.
+
+sudo sed -i "/server_name/a \\\n\tadd_header X-Served-By $(hostnamectl | grep web | cut -d ' ' -f 6)" /etc/nginx/sites-enabled/default
+sudo service nginx reload
