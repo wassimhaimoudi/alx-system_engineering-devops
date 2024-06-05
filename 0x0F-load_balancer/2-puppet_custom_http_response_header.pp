@@ -11,7 +11,7 @@ package { 'nginx':
   ensure => latest,
 }
 
-file_line { 'custom_header':
+file_line { 'custom header':
   ensure => present,
   path   => '/etc/nginx/nginx.conf',
   match  => 'http {',
@@ -19,7 +19,7 @@ file_line { 'custom_header':
   notify => Exec['restart_nginx'],  # Notify the restart if the line is added/changed
 }
 
-exec { 'restart_nginx':
+exec { 'restart nginx':
   command     => '/usr/bin/service nginx restart',
   user        => 'root',
   refreshonly => true,  # Only run when notified
