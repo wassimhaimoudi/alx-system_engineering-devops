@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+# 0-world_wide_web: This script accepts 2 arguments, a domain and a subdomain and displays information about the subdomains
+
+parse_dns_info ()
+{
+	local DOMAIN=$1
+	local SUBDOMAIN=$2
+
+	# Using dig to get DNS info for subdomain
+	dig_OUTPUT=$(dig +noall +answer "$SUBDOMAIN.$DOMAIN")
+
+	echo "$dig_OUTPUT" | awk -v SUB="$SUBDOMAIN" '
+	{
+		RECORD_TYPE=$4
+		DESTINATION_IP=$5
+		print "The subdomain", SUB, "is a", RECORD_TYPE, "record and points to", DESTINATION_IP
+	}'
+}
+
+DOMAIN=$1
+SUBDOMAIN=$2
+
+if [ -n "$SUBDOMAIN" ]
+then
+	parse_dns_info "$DOMAIN" "$SUBDOMAIN"
+else
+	DEFAULT=("www" "lb-01" "web-01" "web-02")
+	for SUB in "${DEFAULT[@]}";
+	do
+		parse_dns_info "$DOMAIN" "$SUB"
+	done
+fi
