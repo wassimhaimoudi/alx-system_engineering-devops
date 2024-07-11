@@ -1,0 +1,8 @@
+0-subs.py:15:1: W293 blank line contains whitespace
+0-subs.py:18:1: W293 blank line contains whitespace
+0-subs.py:24:1: W293 blank line contains whitespace
+1-top_ten.py:7:1: E302 expected 2 blank lines, found 1
+1-top_ten.py:14:1: W293 blank line contains whitespace
+1-top_ten.py:17:1: W293 blank line contains whitespace
+1-top_ten.py:24:1: W293 blank line contains whitespace
+1-top_ten.py:29:1: W293 blank line contains whitespace
