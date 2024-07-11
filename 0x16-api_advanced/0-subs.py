@@ -8,14 +8,13 @@ def number_of_subscribers(subreddit):
     to the subreddit"""
     if subreddit is None or not isinstance(subreddit, str):
         return 0
-    data = requests.get(
+    try:
+        data = requests.get(
             f"https://www.reddit.com/r/{subreddit}/about.json",
             headers={"User-Agent": "Mozilla/5.0 \
                     (X11; Linux x86_64; rv:127.0) \
-                    Gecko/20100101 Firefox/127.0"},
-            allow_redirects=False
+                    Gecko/20100101 Firefox/127.0"}
             )
-    if data.status_code >= 300:
+        return data.json().get("data").get("subscribers")
+    except Exception:
         return 0
-
-    return data.json().get("data").get("subscribers")
