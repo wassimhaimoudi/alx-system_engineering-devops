@@ -11,20 +11,21 @@ def number_of_subscribers(subreddit):
     in a subreddit
     """
     # Reddit API endpoint for subreddit information
-    url = f"https://www.reddit.com/r/{subreddit}/about.json"
+    url = "https://www.reddit.com/r/{}/about.json".format(subreddit)
 
     # Custom User-Agent to avoid Too Many Requests error
-    headers = {'User-Agent': 'MyUser/1.0'}
+    h = {
+        'User-Agent': 'linux:0x16.api.advanced:v1.0.0 (by /u/wassimhaimoudi)'
+        }
 
     # Make the request
     response = requests.get(
             url,
-            headers=headers,
+            headers=h,
             allow_redirects=False)
 
     # Check if the subreddit is valid
-    if response.status_code == 200:
-        data = response.json()
-        return data.get('data').get('subscribers')
-    else:
+    if response.status_code == 404:
         return 0
+    results = response.json().get("data")
+    return results.get("subscribers")
