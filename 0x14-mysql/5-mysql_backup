@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# This script creates a backup file for the entire mysql server
+
+sudo mysqldump --all-databases -uroot -p$1 > backup.sql 
+TARBALL_SQL_BACKUP="$(date '+%d-%m-%4Y').tar.gz"
+tar -czvf $TARBALL_SQL_BACKUP backup.sql
