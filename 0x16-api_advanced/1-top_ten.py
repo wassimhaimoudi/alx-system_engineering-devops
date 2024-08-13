@@ -10,7 +10,7 @@ def top_ten(subreddit):
     """
     Queries the Reddit API and prints the top 10 hot
     posts of a given subreddit
-    
+
     Args:
         subreddit(int): The name of the subreddit
 

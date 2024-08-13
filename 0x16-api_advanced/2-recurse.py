@@ -8,7 +8,7 @@ after = None
 
 def recurse(subreddit, hot_list=[]):
     """
-    
+    Returns top ten post titles recursively
     """
     global after
     headers = {'User-Agent': 'My Mozilla Browser'}
