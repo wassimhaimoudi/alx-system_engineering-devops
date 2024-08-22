@@ -1,12 +1,13 @@
-# Increase the number of worker processes in the nginx config file
-exec { 'upper-treshold':
-  command => 'sed -i "s/15/4096/g" /etc/default/nginx',
-  path    => ['/usr/local/bin', '/bin', '/usr/bin'],  # More consistent paths
+# This manuscript increases the amount of traffic an Nginx server can handle
+
+# Increase the ULIMIT of the default file
+exec { 'fix--for-nginx':
+  command => 'sed -i "s/15/4096/" /etc/default/nginx',
+  path    => '/usr/local/bin/:/bin/'
 }
 
-exec { 'restart-nginx':
-  command     => 'service nginx restart',
-  path        => ['/usr/local/bin', '/bin', '/usr/bin'],
-  require     => Exec['upper-treshold'],  # Ensures this runs after 'upper-treshold'
-  refreshonly => true,  # Ensures it only runs if something triggers it
+# Restart Nginx
+-> exec { 'nginx-restart':
+  command => 'nginx restart',
+  path    => '/etc/init.d/'
 }
