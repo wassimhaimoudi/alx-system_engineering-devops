@@ -1,6 +1,6 @@
 # Increase the number of worker processes in the nginx config file
 exec { 'upper-treshold':
-  command => 'sed -i "s/worker_processes 4/worker_processes 6/g" /etc/nginx/nginx.conf',
+  command => 'sed -i "s/15/4096/g" /etc/default/nginx',
   path    => ['/usr/local/bin', '/bin', '/usr/bin'],  # More consistent paths
 }
 
